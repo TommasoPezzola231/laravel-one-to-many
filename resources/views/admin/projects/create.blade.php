@@ -13,6 +13,19 @@
         @enderror
         <input class="form-control @error('description') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" required>
 
+        <label for="type_id">Tipo</label>
+        @error('type_id')
+            <div class="bg-danger-subtle rounded">{{$message}}</div>  
+        @enderror
+        <select class="form-control" name="type_id">
+            <option value="" selected disabled hidden>Seleziona opzione</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}">{{ $type->name }}</option>
+            @endforeach
+        </select>
+        
+        
+
         <label for="content">Contenuto</label>
         @error('content')
             <div class="bg-danger-subtle rounded">{{$message}}</div>  

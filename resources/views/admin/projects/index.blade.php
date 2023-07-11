@@ -12,6 +12,14 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $project->title }}</h5>
                             
+                            <form action="{{ route("admin.projects.destroy", $project) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger">
+                                    <i class='fa-solid fa-trash'></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </a>
